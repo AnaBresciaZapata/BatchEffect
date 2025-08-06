@@ -2,6 +2,7 @@
 
 export(correct_batch_effect)
 export(plot_MAD_MDS)
+export(prince_correlation)
 importFrom(dplyr,filter)
 importFrom(edgeR,cpm)
 importFrom(ggplot2,aes)
@@ -12,4 +13,5 @@ importFrom(ggplot2,labs)
 importFrom(ggplot2,stat_ellipse)
 importFrom(ggplot2,theme_minimal)
 importFrom(ggsci,scale_color_igv)
+importFrom(grDevices,heat.colors)
 importFrom(matrixStats,rowMads)
