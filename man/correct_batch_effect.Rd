@@ -2,31 +2,30 @@
 % Please edit documentation in R/correct_batch_effect.R
 \name{correct_batch_effect}
 \alias{correct_batch_effect}
-\title{Corrección de efecto batch en datos de expresión génica}
+\title{Batch effect correction in gene expression data using technical replicates}
 \usage{
 correct_batch_effect(ref_batch_n, counts, metadata, replicates)
 }
 \arguments{
-\item{ref_batch_n}{Integer. Número del batch que se utilizará como referencia para la normalización.}
+\item{ref_batch_n}{Integer. Batch number used as the reference batch for normalization.}
 
-\item{counts}{Matrix. Matriz de conteos crudos con genes en filas y muestras en columnas. Deben ser enteros.}
+\item{counts}{Matrix. Raw count data rounded to integers with samples in columns and genes in rows.}
 
-\item{metadata}{Data frame. Debe tener dos columnas: \code{SampleType} (tipo de muestra: control, enfermedad, replicado, etc.)
-y \code{Batch} (número de batch). Los nombres de fila deben corresponder a las muestras y coincidir con las columnas de \code{counts}.}
+\item{metadata}{Data frame. With two columns: \code{SampleType} (sample classification: control, disease, replicate, etc)
+and \code{Batch} (batch number). Rownames must correspond to the samples and match with the colnames from \code{counts}.}
 
-\item{replicates}{Character vector. Etiquetas en \code{SampleType} que indican cuáles muestras son replicados entre batches.}
+\item{replicates}{Character vector. Labels in \code{SampleType} to indicate replicate samples.}
 }
 \value{
-Una lista con los siguientes elementos:
+A list with:
 \describe{
-  \item{counts_corrected}{Matriz de conteos corregidos}
-  \item{adjustment_report}{Factores de corrección aplicados por gen y por batch}
-  \item{cpm}{Matriz original convertida a CPM}
-  \item{cpm_corrected}{Matriz corregida convertida a CPM}
+  \item{counts_corrected}{Matrix count corrected}
+  \item{adjustment_report}{Correction factors applied to each gene per batch}
+  \item{cpm}{Original matrix in CPM}
+  \item{cpm_corrected}{Corrected matrix in CPM}
 }
 }
 \description{
-Esta función corrige el efecto batch en datos de expresión génica utilizando muestras replicadas como anclaje.
-Convierte los conteos a CPM (counts per million), calcula los factores de ajuste por gen entre batches,
-y aplica la corrección a los batches no de referencia. Luego devuelve tanto los conteos como los CPM corregidos.
+This function performs batch effect correction on count data by using clinical replicates across different batches.
+The correction is based on the relative dispersion between replicates, adjusting the counts accordingly by gene.
 }

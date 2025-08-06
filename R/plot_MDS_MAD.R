@@ -1,23 +1,23 @@
-#' Gráficos MDS y MAD para análisis de variabilidad
+#' MDS and MAD Plots for Variability Analysis
 #'
-#' Esta función genera gráficos para analizar la variabilidad de datos de expresión normalizados en CPM.
-#' Calcula un análisis de escalamiento multidimensional (MDS) para visualizar la similitud entre muestras
-#' según el tipo de muestra y batch. También calcula la dispersión mediana absoluta (MAD) por grupo y batch.
+#' This function generates plots to analyze variability in gene expression data normalized as CPM.
+#' It performs a multidimensional scaling (MDS) analysis to visualize the similarity between samples
+#' according to their sample type and batch. It also calculates the median absolute deviation (MAD)
+#' of gene expression by sample type and by batch.
 #'
-#' @param cpm Matrix. Matriz de expresión en CPM con genes en filas y muestras en columnas.
-#' @param metadata Data frame. Debe tener las columnas `SampleType` y `Batch`, y las filas deben corresponder
-#'        a las muestras (identificadores iguales a las columnas de la matriz cpm).
-#' @param filter Numeric. Umbral numérico para filtrar valores extremos de MAD en los gráficos de densidad.
+#' @param cpm Matrix. CPM expression matrix with genes in rows and samples in columns.
+#' @param metadata Data frame. Must contain the columns `SampleType` and `Batch`, and row names
+#'        must correspond to the samples (identifiers matching the columns of the cpm matrix).
+#' @param filter Numeric. Threshold to filter extreme MAD values in the density plots.
 #'
-#' @return Una lista con:
+#' @return A list containing:
 #' \describe{
-#'   \item{mds_result}{Matriz con las dos primeras dimensiones del análisis MDS}
-#'   \item{plot_mds_group}{Gráfico MDS por tipo de muestra}
-#'   \item{plot_mds_batch}{Gráfico MDS por batch}
-#'   \item{plot_mad_group}{Distribución MAD por tipo de muestra}
-#'   \item{plot_mad_batch}{Distribución MAD por batch}
+#'   \item{mds_result}{Matrix with the first two dimensions of the MDS analysis}
+#'   \item{plot_mds_group}{MDS plot by sample type}
+#'   \item{plot_mds_batch}{MDS plot by batch}
+#'   \item{plot_mad_group}{MAD distribution by sample type}
+#'   \item{plot_mad_batch}{MAD distribution by batch}
 #' }
-#'
 #' @importFrom matrixStats rowMads
 #' @importFrom ggplot2 ggplot aes geom_point labs stat_ellipse theme_minimal geom_density
 #' @importFrom dplyr filter

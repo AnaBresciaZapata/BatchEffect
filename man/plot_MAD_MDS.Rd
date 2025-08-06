@@ -2,30 +2,31 @@
 % Please edit documentation in R/plot_MDS_MAD.R
 \name{plot_MAD_MDS}
 \alias{plot_MAD_MDS}
-\title{Gráficos MDS y MAD para análisis de variabilidad}
+\title{MDS and MAD Plots for Variability Analysis}
 \usage{
 plot_MAD_MDS(cpm, metadata, filter)
 }
 \arguments{
-\item{cpm}{Matrix. Matriz de expresión en CPM con genes en filas y muestras en columnas.}
+\item{cpm}{Matrix. CPM expression matrix with genes in rows and samples in columns.}
 
-\item{metadata}{Data frame. Debe tener las columnas `SampleType` y `Batch`, y las filas deben corresponder
-a las muestras (identificadores iguales a las columnas de la matriz cpm).}
+\item{metadata}{Data frame. Must contain the columns `SampleType` and `Batch`, and row names
+must correspond to the samples (identifiers matching the columns of the cpm matrix).}
 
-\item{filter}{Numeric. Umbral numérico para filtrar valores extremos de MAD en los gráficos de densidad.}
+\item{filter}{Numeric. Threshold to filter extreme MAD values in the density plots.}
 }
 \value{
-Una lista con:
+A list containing:
 \describe{
-  \item{mds_result}{Matriz con las dos primeras dimensiones del análisis MDS}
-  \item{plot_mds_group}{Gráfico MDS por tipo de muestra}
-  \item{plot_mds_batch}{Gráfico MDS por batch}
-  \item{plot_mad_group}{Distribución MAD por tipo de muestra}
-  \item{plot_mad_batch}{Distribución MAD por batch}
+  \item{mds_result}{Matrix with the first two dimensions of the MDS analysis}
+  \item{plot_mds_group}{MDS plot by sample type}
+  \item{plot_mds_batch}{MDS plot by batch}
+  \item{plot_mad_group}{MAD distribution by sample type}
+  \item{plot_mad_batch}{MAD distribution by batch}
 }
 }
 \description{
-Esta función genera gráficos para analizar la variabilidad de datos de expresión normalizados en CPM.
-Calcula un análisis de escalamiento multidimensional (MDS) para visualizar la similitud entre muestras
-según el tipo de muestra y batch. También calcula la dispersión absoluta mediana (MAD) por grupo y batch.
+This function generates plots to analyze variability in gene expression data normalized as CPM.
+It performs a multidimensional scaling (MDS) analysis to visualize the similarity between samples
+according to their sample type and batch. It also calculates the median absolute deviation (MAD)
+of gene expression by sample type and by batch.
 }
