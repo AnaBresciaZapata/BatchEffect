@@ -1,0 +1,24 @@
+Package: BatchEffect
+Type: Package
+Title: Batch Effect correction using Replicates
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Ana", "Brescia-Zapata",
+      email = "ana.brescia@genyo.es",
+      role = c("aut", "cre")
+    )
+  )
+Description: R package designed to correct batch effects in transcriptomic count data using replicate samples.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports:
+    edgeR,
+    matrixStats,
+    ggplot2,
+    dplyr,
+    ggsci
+RoxygenNote: 7.3.2
+
+
